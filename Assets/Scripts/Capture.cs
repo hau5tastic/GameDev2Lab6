@@ -43,10 +43,11 @@ public class Capture : NetworkBehaviour {
                 flag.GetComponent<Renderer>().material.color = playersInPoint[0].color;
             }
 
-            if(captured)
+            if(captured && !spawnOccupied)
             {
                 GameObject destructible = (GameObject) Instantiate(destructiblePrefab, spawn.position, spawn.rotation);
                 destructible.GetComponent<Destructible>().setOwner(owner);
+                spawnOccupied = true;
                 NetworkServer.Spawn(destructible);
             }
         }

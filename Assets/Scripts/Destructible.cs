@@ -5,11 +5,21 @@ using System.Collections;
 public class Destructible : NetworkBehaviour {
 
     Player owner = null;
+    [SyncVar] Color color;
+
+
+
+    [Command]
+    void CmdSetColor(Color _color)
+    {
+        color = _color;
+        GetComponent<Renderer>().material.color = color;
+    }
 
     public void setOwner(Player _owner)
     {
         owner = _owner;
-        GetComponent<Renderer>().material.color = owner.color;
+        CmdSetColor(_owner.color);
     }
 
     void OnCollisionEnter(Collision col)
