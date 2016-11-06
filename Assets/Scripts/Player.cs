@@ -33,6 +33,7 @@ public class Player : NetworkBehaviour {
     void CmdFire()
     {
             GameObject bullet = (GameObject)Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
+            bullet.GetComponent<Bullet>().SetOwner(this);
             bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * 25;
             NetworkServer.Spawn(bullet);
             Destroy(bullet, 0.5f);

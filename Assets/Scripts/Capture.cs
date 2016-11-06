@@ -8,13 +8,18 @@ public class Capture : NetworkBehaviour {
 
     public float captureTime;
 
+    public Transform spawn;
+    public GameObject destructiblePrefab;
+    bool spawnOccupied = false;
+    bool captured = false;
+
     public GameObject flag;
 
     [SerializeField]
     private float currentTime;
 
     [SerializeField]
-    private Player owner = null;
+    Player owner = null;
 
     [SerializeField]
     List<Player> playersInPoint;
@@ -33,8 +38,16 @@ public class Capture : NetworkBehaviour {
         if (CaptureConditionsOK()) {
             Debug.Log( "Capture Conditions Passed" );
             if (CapturePoint()) {
+                captured = true;
                 owner = playersInPoint[0];
                 flag.GetComponent<Renderer>().material.color = playersInPoint[0].color;
+            }
+
+            if(captured)
+            {
+                GameObject destructible = (GameObject) Instantiate(destructiblePrefab, spawn.position, spawn.rotation);
+                destructible.GetComponent<Destructible>().setOwner(owner);
+                NetworkServer.Spawn(destructible);
             }
         }
 	}
