@@ -5,11 +5,12 @@ using UnityEngine.Networking;
 public class PlayerView : NetworkBehaviour {
 
 
-    private float XSensitivity = 2;
-    private float YSensitivity = 2;
+    private float XSensitivity = 10;
+    private float YSensitivity = 10;
 
     private Transform charTransform;
     private Transform charCamera;
+    public GameObject gun;
 
     void Start () {
         if (!isLocalPlayer)
@@ -35,7 +36,8 @@ public class PlayerView : NetworkBehaviour {
 
         charCamera.localRotation *= Quaternion.Euler(-yRot, 0, 0f);
         charTransform.localRotation *= Quaternion.Euler(0, xRot, 0f);
+        gun.transform.localRotation *= Quaternion.Euler(-yRot, 0, 0f);
 
-        Debug.DrawRay(transform.position, transform.forward.normalized * 5.0f, Color.green);
+        Debug.DrawRay(gun.transform.position, gun.transform.forward.normalized * 5.0f, Color.green);
     }
 }

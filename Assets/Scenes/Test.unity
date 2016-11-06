@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44692546, g: 0.49678695, b: 0.5750854, a: 1}
+  m_IndirectSpecularColor: {r: 0.44692558, g: 0.49678743, b: 0.57508624, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -227,7 +227,8 @@ MonoBehaviour:
   m_PlayerSpawnMethod: 0
   m_OfflineScene: 
   m_OnlineScene: 
-  m_SpawnPrefabs: []
+  m_SpawnPrefabs:
+  - {fileID: 1000010745122938, guid: 5009f33d6b720fb4da9dbe08f7de003a, type: 2}
   m_CustomConfig: 0
   m_MaxConnections: 4
   m_ConnectionConfig:
@@ -531,7 +532,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 707431608}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -28.16, y: 0, z: 0.94}
+  m_LocalPosition: {x: -28.16, y: 0, z: -0.6}
   m_LocalScale: {x: 0.1, y: 2, z: 0.1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -853,7 +854,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1324326351}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.25, y: 0, z: 9.67}
+  m_LocalPosition: {x: 24.8, y: 0, z: 25.6}
   m_LocalScale: {x: 0.1, y: 2, z: 0.1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -948,7 +949,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4000014237334052, guid: d674d4c56354ab444be3e11eb0d407e0, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 6.16
+      value: 23.04
       objectReference: {fileID: 0}
     - target: {fileID: 4000014237334052, guid: d674d4c56354ab444be3e11eb0d407e0, type: 2}
       propertyPath: m_LocalPosition.y
