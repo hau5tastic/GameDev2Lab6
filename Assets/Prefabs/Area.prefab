@@ -73,6 +73,7 @@ GameObject:
   - 135: {fileID: 135000011255405072}
   - 114: {fileID: 114000013627573514}
   - 114: {fileID: 114000014074098462}
+  - 114: {fileID: 114000013929637424}
   m_Layer: 0
   m_Name: Area
   m_TagString: Untagged
@@ -127,7 +128,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012876333466}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 23.04, y: 0, z: -25.02}
+  m_LocalPosition: {x: 23.04, y: 1, z: -28.17}
   m_LocalScale: {x: 0.1, y: 2, z: 0.1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -250,7 +251,27 @@ MonoBehaviour:
     i14: 7
     i15: 224
   m_ServerOnly: 0
-  m_LocalPlayerAuthority: 0
+  m_LocalPlayerAuthority: 1
+--- !u!114 &114000013929637424
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012876333466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 1
+  m_SendInterval: 1
+  m_SyncRotationAxis: 0
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
 --- !u!114 &114000014074098462
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -262,7 +283,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9162c96c53e6667478ccc29ecab2e329, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  captureTime: 5
+  captureTime: 2
+  spawn: {fileID: 4000010527536050}
+  destructiblePrefab: {fileID: 1000011084444342, guid: 65ad4b7507af6bb448b9066fda27f9b5,
+    type: 2}
   flag: {fileID: 1000010783606012}
   currentTime: 0
   owner: {fileID: 0}

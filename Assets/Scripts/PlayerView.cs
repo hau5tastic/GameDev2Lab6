@@ -5,16 +5,19 @@ using UnityEngine.Networking;
 public class PlayerView : NetworkBehaviour {
 
 
-    private float XSensitivity = 10;
-    private float YSensitivity = 10;
+    private float XSensitivity = 2;
+    private float YSensitivity = 2;
 
     private Transform charTransform;
     private Transform charCamera;
     public GameObject gun;
 
     void Start () {
-        if (!isLocalPlayer)
+        if (!isLocalPlayer) {
             GetComponentInChildren<Camera>().enabled = false;
+            GetComponentInChildren<AudioListener>().enabled = false;
+        }
+            
 
         charTransform = GetComponent<Transform>();
         charCamera = GetComponentInChildren<Camera>().transform;
