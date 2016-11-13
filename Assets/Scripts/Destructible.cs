@@ -29,6 +29,7 @@ public class Destructible : NetworkBehaviour {
             if(col.gameObject.GetComponent<Bullet>().owner != owner)
             {
                 Destroy(col.gameObject);
+                NetworkServer.Destroy(gameObject);
                 OnDestroy();
             }
             else
@@ -41,7 +42,6 @@ public class Destructible : NetworkBehaviour {
     [Command]
     void CmdDestroy()
     {
-        NetworkServer.Destroy(gameObject);
         RpcDestroy();
     }
 

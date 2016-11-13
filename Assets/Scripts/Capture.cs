@@ -36,8 +36,6 @@ public class Capture : NetworkBehaviour {
 	void Update () {
         if (CaptureConditionsOK()) {
 
-
- 
             //Debug.Log( "Capture Conditions Passed" );
             if (CapturePoint()) {
                 captured = true;
@@ -45,16 +43,17 @@ public class Capture : NetworkBehaviour {
                 // Debug.Log(owner);
                 flag.GetComponent<Renderer>().material.color = playersInPoint[0].color;
             }
-
-            if(captured && !spawnOccupied)
-            {
-                GameObject destructible = (GameObject) Instantiate(destructiblePrefab, spawn.position, spawn.rotation);
-                destructible.GetComponent<Destructible>().setOwner(owner);
-                destructible.GetComponent<Destructible>().setCapture(this);
-                spawnOccupied = true;
-                if (isServer) NetworkServer.Spawn(destructible);
-            }
         }
+
+        if(captured && !spawnOccupied)
+        {
+            GameObject destructible = (GameObject) Instantiate(destructiblePrefab, spawn.position, spawn.rotation);
+            destructible.GetComponent<Destructible>().setOwner(owner);
+            destructible.GetComponent<Destructible>().setCapture(this);
+            spawnOccupied = true;
+            if (isServer) NetworkServer.Spawn(destructible);
+        }
+        
 	}
 
     void OnTriggerEnter(Collider col) {
