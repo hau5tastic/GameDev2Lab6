@@ -33,7 +33,7 @@ public class Destructible : NetworkBehaviour {
             }
             else
             {
-                Debug.Log("owner hit");
+                // Debug.Log("owner hit");
             }
         }
     }
@@ -41,28 +41,29 @@ public class Destructible : NetworkBehaviour {
     [Command]
     void CmdDestroy()
     {
-        NetworkServer.Destroy(this.gameObject);
+        NetworkServer.Destroy(gameObject);
+        RpcDestroy();
     }
 
     [ClientRpc]
     void RpcDestroy()
     {
-        Destroy(this.gameObject);
+        capture.spawnOccupied = false;
     }
 
     void OnDestroy()
     {
         CmdDestroy();
-        RpcDestroy();
-        capture.spawnOccupied = false;
-        Destroy(this.gameObject);
     }
 
+
+
+
+    // ---------
     [Command]
     void CmdSetColor(Color _color)
     {
-        color = _color;
-        GetComponent<Renderer>().material.color = color;
+        RpcChangeColor(_color);
     }
 
     [ClientRpc]
@@ -75,7 +76,6 @@ public class Destructible : NetworkBehaviour {
     void OnColor(Color newColor)
     {
         CmdSetColor(newColor);
-        RpcChangeColor(newColor);
         GetComponent<Renderer>().material.color = newColor;
     }
 }

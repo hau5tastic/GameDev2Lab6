@@ -35,11 +35,14 @@ public class Capture : NetworkBehaviour {
 
 	void Update () {
         if (CaptureConditionsOK()) {
+
+
+ 
             //Debug.Log( "Capture Conditions Passed" );
             if (CapturePoint()) {
                 captured = true;
                 owner = playersInPoint[0];
-                Debug.Log(owner);
+                // Debug.Log(owner);
                 flag.GetComponent<Renderer>().material.color = playersInPoint[0].color;
             }
 
@@ -49,7 +52,7 @@ public class Capture : NetworkBehaviour {
                 destructible.GetComponent<Destructible>().setOwner(owner);
                 destructible.GetComponent<Destructible>().setCapture(this);
                 spawnOccupied = true;
-                NetworkServer.Spawn(destructible);
+                if (isServer) NetworkServer.Spawn(destructible);
             }
         }
 	}

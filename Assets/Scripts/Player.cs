@@ -23,7 +23,8 @@ public class Player : NetworkBehaviour {
         base.OnStartLocalPlayer();
 
         Color newColor = new Color(Random.value, Random.value, Random.value);
-        OnColor(newColor);
+        CmdChangeColor(newColor);
+
     }
 
 
@@ -56,8 +57,7 @@ public class Player : NetworkBehaviour {
 
     [Command]
     void CmdChangeColor(Color newColor) {
-        color = newColor;
-        GetComponent<Renderer>().material.color = newColor;
+        RpcChangeColor(newColor);
     }
 
     [ClientRpc]
@@ -68,7 +68,6 @@ public class Player : NetworkBehaviour {
 
     void OnColor(Color newColor) {
         CmdChangeColor(newColor);
-        RpcChangeColor(newColor);
         GetComponent<Renderer>().material.color = newColor;
     }
 }
