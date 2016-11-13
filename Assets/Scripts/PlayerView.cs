@@ -23,7 +23,8 @@ public class PlayerView : NetworkBehaviour {
         charCamera = GetComponentInChildren<Camera>().transform;
 
 
-        Cursor.lockState = CursorLockMode.None;
+        //Cursor.lockState = CursorLockMode.None;
+        Cursor.lockState = CursorLockMode.Locked;
         // Cursor.visible = false;
     }
 	
