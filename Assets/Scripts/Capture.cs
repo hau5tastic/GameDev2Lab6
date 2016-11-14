@@ -11,7 +11,7 @@ public class Capture : NetworkBehaviour {
     public Transform spawn;
     public GameObject destructiblePrefab;
     public bool spawnOccupied = false;
-    bool captured = false;
+    public bool captured = false;
 
     public GameObject flag;
 
@@ -51,6 +51,7 @@ public class Capture : NetworkBehaviour {
             destructible.GetComponent<Destructible>().setOwner(owner);
             destructible.GetComponent<Destructible>().setCapture(this);
             spawnOccupied = true;
+            Debug.Log(spawnOccupied);
             if (isServer) NetworkServer.Spawn(destructible);
         }
         

@@ -287,6 +287,7 @@ MonoBehaviour:
   spawn: {fileID: 4000010527536050}
   destructiblePrefab: {fileID: 1000011084444342, guid: 65ad4b7507af6bb448b9066fda27f9b5,
     type: 2}
+  spawnOccupied: 0
   flag: {fileID: 1000010783606012}
   currentTime: 0
   owner: {fileID: 0}
